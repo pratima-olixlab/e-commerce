@@ -41,7 +41,6 @@ export class PaymentComponent {
           console.error('Stripe token creation error:', token.error);
           alert('Error occurred during payment: ' + token.error.message);
         } else {
-          console.log('Token created:', token);
           alert('Payment Success!!');
           this.placeOrder();
         }
@@ -62,7 +61,6 @@ export class PaymentComponent {
       amount: amount * 100,
       currency: "inr"
     });
-    console.log('amount',amount);
  
   }
  
@@ -78,7 +76,6 @@ export class PaymentComponent {
           key: 'pk_test_51OQMS8SBmrKIRoJWhVgg6myQKYC6OSEFOCcVQLT3TMBs7LWV30GvB9MZkKYAKBOzdnLQQTta3ZlQYTIcrJmfqNbs00NlzjPYwh',
           locale: 'auto',
           token: function (token: any) {
-            console.log(token)
             alert('Payment Success!!');
           }
         });

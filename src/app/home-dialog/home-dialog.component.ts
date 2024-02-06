@@ -35,44 +35,16 @@ export class HomeDialogComponent {
                @Inject(MAT_DIALOG_DATA) public data: HomeDialogData) {
                 this.selectedCategory = this.data.task.category || '';
                }
-
-  // ngOnInit() {
-  //   this.generateCategories();
-  //   if (this.data.task.category) {
-  //     this.selectedCategory = this.data.task.category;
-  //   } else if (this.categories && this.categories.length > 0) {
-  //     this.selectedCategory = this.categories[0].id;
-  //   }
-  // }
-
-  // ngOnInit() {
-  //   this.generateCategories();
-  
-  //   if (this.data.task.category) {
-  //     const selectedCategory = this.categories.find(category => category.id === this.data.task.category);
-  //     if (selectedCategory) {
-  //       this.selectedCategory = selectedCategory.name;
-  //     }
-  //   } else if (this.categories && this.categories.length > 0) {
-  //     this.selectedCategory = this.categories[0].name;
-  //   }
-
-  //   this.categoryChange(this.data.task.category);
-  //   console.log('this.data.task.category',this.data.task.category);
-    
-  // }
   
   ngOnInit() {
     this.generateCategories();
   
-    // Check if there is a selected category in the task
     if (this.data.task.category) {
       const selectedCategory = this.categories.find(category => category.id === this.data.task.category);
       if (selectedCategory) {
         this.selectedCategory = selectedCategory.name;
       }
     } else if (this.categories && this.categories.length > 0) {
-      // If there is no category selected in the task, set the default to the first category
       this.selectedCategory = this.categories[0].name;
     }
   }
@@ -82,17 +54,6 @@ export class HomeDialogComponent {
       this.categories = response;
     });
   }
-  
-  
-
-  // generateCategories() {
-  //   this.category.subscribe((response) => {
-  //     this.categories = response;
-  //     if (this.categories && this.categories.length > 0) {
-  //       this.selectedCategory = this.categories[0].id;
-  //     }
-  //   });
-  // }
 
   cancel(): void {
     this.data.task.image = this.backupProduct.image;
@@ -107,7 +68,6 @@ export class HomeDialogComponent {
   categoryChange(value: string) {
     this.selectedCategoryId = value;
     this.data.task.category = value;
-    console.log('value::::',value);
   }
 }
 

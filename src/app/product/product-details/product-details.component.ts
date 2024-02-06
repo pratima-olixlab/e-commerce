@@ -84,16 +84,12 @@ export class ProductDetailsComponent {
       .getRatingsForProduct(this.productId)
       .subscribe((userRatings) => {
         const totalRatings = userRatings.length;
-        console.log('totalRatings', totalRatings);
         if (totalRatings > 0) {
           const sumOfRatings = userRatings.reduce(
             (acc, userRating) => acc + userRating.rating,
             0
           );
-          console.log('sumofratings',sumOfRatings);
           this.averageRating = sumOfRatings / totalRatings;
-          console.log('averageratings',this.averageRating);
-          // Update stars based on the averageRating
           this.updateStars();
         }
       });

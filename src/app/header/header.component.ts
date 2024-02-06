@@ -72,7 +72,6 @@ export class HeaderComponent implements OnInit {
           this.currentUser = userData as UserDocument;
           this.notificationService.count$.subscribe((count) => {
             this.totalNotifications = count;
-            console.log('total', this.totalNotifications);
           });
         });
       }

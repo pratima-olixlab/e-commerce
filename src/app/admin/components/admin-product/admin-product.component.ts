@@ -117,9 +117,7 @@ export class AdminProductComponent {
         docRef.update({
           id: addedProductId,
         });
-  
-        console.log('Added product ID:', addedProductId);
-      });
+        });
     });
   }
   

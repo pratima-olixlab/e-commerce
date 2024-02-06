@@ -60,7 +60,6 @@ export class UserOrdersComponent implements OnInit{
     this.userDataService.userForm$.subscribe((userForm) => {
       if (userForm !== null) {
         this.userForm = userForm;
-        console.log('user/////sfdsdf/', this.userForm);
       }
     });
   }
@@ -70,7 +69,6 @@ export class UserOrdersComponent implements OnInit{
       this.userDataService.setAddresses(addresses);
       this.addresses = addresses;
       this.isDataLoaded = true; // Set the flag to true after data is loaded
-      console.log('addressesZxZXZx:::::', this.addresses);
     });
   }
 

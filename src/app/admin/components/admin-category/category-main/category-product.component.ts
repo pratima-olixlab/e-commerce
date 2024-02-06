@@ -98,8 +98,6 @@ export class CategoryProductComponent {
         docRef.update({
           id: addedCategoryId,
         });
-  
-        console.log('Added product ID:', addedCategoryId);
       });
     });
     }

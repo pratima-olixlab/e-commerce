@@ -42,18 +42,15 @@ export class BuyProductComponent {
     private userDataService: UserDataService,
     private ordersService: OrderService
   ) {
-    console.log('user', this.user);
   }
 
   task: Address;
   @Output() edit = new EventEmitter<Address>();
   fulladdress: any = null;
   ngOnInit() {
-    console.log('user//////', this.userForm);
     this.userDataService.userForm$.subscribe((userForm) => {
       if (userForm !== null) {
         this.userForm = userForm;
-        console.log('user/////sfdsdf/', this.userForm);
       }
     });
     this.afAuth.authState.subscribe((user) => {
@@ -62,13 +59,11 @@ export class BuyProductComponent {
           (userData) => {
             this.userDataService.setCurrentUser(userData);
             this.fetchAddresses(userData.userId);
-            console.log('addresses:::::', this.addresses);
             this.currentUser = userData as UserDocument;
             this.ordersService
               .getAcceptedOrdersByUser(user.uid)
               .subscribe((userAcceptedOrders) => {
                 this.acceptedOrders$ = of(userAcceptedOrders);
-                console.log('acceptedOrders::::::', this.acceptedOrders$);
               });
           },
           (error) => {
@@ -96,7 +91,6 @@ export class BuyProductComponent {
       this.userDataService.setAddresses(addresses);
       this.addresses = addresses;
       this.isDataLoaded = true;
-      console.log('addressesZxZXZx:::::', this.addresses);
     });
   }
 }

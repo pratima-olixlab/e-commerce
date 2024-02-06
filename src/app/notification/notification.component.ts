@@ -56,18 +56,15 @@ export class NotificationComponent implements OnInit {
     this.userDataService.userForm$.subscribe((userForm) => {
       if (userForm !== null) {
         this.userForm = userForm;
-        console.log('user/////sfdsdf/', this.userForm);
       }
     });
   }
-
 
   fetchAddresses(userId: string) {
     this.firebaseService.getAddressById(userId).subscribe((addresses) => {
       this.userDataService.setAddresses(addresses);
       this.addresses = addresses;
       this.isDataLoaded = true; // Set the flag to true after data is loaded
-      console.log('addressesZxZXZx:::::', this.addresses);
     });
   }
 
@@ -76,7 +73,6 @@ export class NotificationComponent implements OnInit {
   }
 
   openPDF(notification: Notification) {
-    console.log('Notification details:', notification.details);
     if (!this.acceptedOrders$) {
       console.error('Accepted Orders Observable is not initialized.');
       return;
@@ -158,7 +154,7 @@ export class NotificationComponent implements OnInit {
     const ordersData = [];
     this.acceptedOrders$.subscribe((orders) => {
       if (orders) {
-        orders.forEach((order, index) => { // Match the order ID from the notification
+        orders.forEach((order, index) => {
           const orderDetails = [
             `${index + 1}`,
             `${order.status}`,
@@ -232,13 +228,3 @@ export class NotificationComponent implements OnInit {
     return new Blob([arrayBuffer], { type: mimeType });
   }
 }
-
-
-// ngOnInit() {
-//   this.orderService.notification$.subscribe((notifications) => {
-//     // Handle new notifications
-//     console.log('Received new notifications:', notifications);
-//     // Update your UI as needed
-//     this.notifications = notifications;
-//   });
-// }

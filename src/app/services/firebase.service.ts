@@ -78,7 +78,6 @@ export class FirebaseService {
       .sendPasswordResetEmail(email)
       .then(() => {
         window.alert('Password reset email sent, check your inbox.');  
-        // this.router.navigate(['auth/verify-email']);
       })
       .catch((error) => {
         window.alert(error);
@@ -139,22 +138,6 @@ export class FirebaseService {
         })
       );
   }
-  // addUser(user: UserDocument): Observable<UserDocument> {
-  //   return new Observable((observer) => {
-  //     this.firestore
-  //       .collection('users')
-  //       .add(user)
-  //       .then((docRef) => {
-  //         const addedUser: UserDocument = { ...user, id: docRef.id };
-  //         observer.next(addedUser);
-  //         observer.complete();
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error adding user to Firestore:', error);
-  //         observer.error(error);
-  //       });
-  //   });
-  // }
 
   addUser(user: UserDocument): Observable<UserDocument> {
     return new Observable((observer) => {
@@ -177,7 +160,6 @@ export class FirebaseService {
   }
 
   isAuthenticated(): boolean {
-    // Check if the user is authenticated
     return this.isLoggedIn;
   }
 
@@ -204,15 +186,6 @@ export class FirebaseService {
     return this.firestore.collection('users').doc(userId).valueChanges();
   }
 
-  // getAddressById(userId: string): Observable<Address[]> {
-  //   console.log('getAddressById', userId);
-
-  //   return this.firestore
-  //     .collection<Address>('address', (ref) =>
-  //       ref.where('userId', '==', userId)
-  //     )
-  //     .valueChanges();
-  // }
   getAddressById(userId: string): Observable<Address[]> {
     return this.firestore
       .collection<Address>('address', (ref) =>
