@@ -1,0 +1,29 @@
+<div class="example-container">
+    <div class="container">
+        <h1>Enter card details</h1>
+        Card Number:
+        <input matInput>
+        <br><br>
+        NickName
+        <input matInput>
+        <br>
+        <br>
+        Expiry Date
+        <input matInput />
+        <br>
+        <br><br><br> 
+        <div class="alerts">
+            Please ensure that you enable your card for online payments from your bank’s app.
+            <div class="images-container">
+                <img src="assets/rupay.png" alt="Rupay-Image">
+                <img src="assets/visa.png" alt="Visa-Image">
+                <img src="assets/mastercard.png" alt="Mastercard-Image">
+                <img src="assets/maestro.png" alt="Maestro-Image">
+                <img src="assets/bitcoin.png" alt="Bitcoin-Image">
+            </div>
+        </div>
+        <br><br>
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button (click)="saveCardData()" class="enter-card-button">Enter Card Details</button>
+    </div>
+</div>

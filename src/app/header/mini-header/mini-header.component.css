@@ -1,0 +1,12 @@
+mat-toolbar{
+    padding: 10px;
+    height: 50px;
+    margin-top:10px;
+    background-color: rgb(172, 212, 247);
+}
+
+.tabs{
+  justify-content: center;
+  margin-left: 40%;
+  margin-top: 15px;
+}

@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<!-- <ng-container *ngFor="let notification of notifications">
+    <div [ngClass]="{'order-accepted': notification.type === 'order_accepted', 'order-declined': notification.type === 'order_declined'}">
+      <p>{{ notification.message }}</p>
+      <span [innerHTML]="notification.message"></span>
+    </div>
+  </ng-container> -->
+  <!-- <div *ngFor="let notification of notifications" class="notification-item">
+    <div [ngClass]="{'order-accepted': notification.type === 'order_accepted', 'order-declined': notification.type === 'order_declined'}">
+      <span [innerHTML]="notification.message"></span>
+    </div>
+  </div>
+  <div *ngIf="notifications.length === 0">
+    <p>No notifications available</p>
+  </div> -->
+
+  <div *ngFor="let notification of notifications" class="notification-item">
+    <div [ngClass]="{'order-accepted': notification.type === 'order_accepted','order-declined': notification.type === 'order_declined'}">
+      <span [innerHTML]="notification.message"></span>
+      <!-- <p>{{ notification.details | json }}</p> -->
+   <br>
+      <button (click)="markAsRead(notification)">Mark as Read</button>
+      <button class="btn btn-primary btn-block" (click)="openPDF(notification)">Open PDF</button>
+    </div>
+  </div>

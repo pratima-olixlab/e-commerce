@@ -1,0 +1,27 @@
+<mat-card class="item">
+    <div *ngIf="addresses.length > 0">
+        <div *ngFor="let address of addresses" (click)="selectRadioButton('addressSelect')">
+            <mat-radio-button #addressSelectRadio>
+                <p>
+                    {{ address.house }}, {{ address.area }}, {{ address.landmark }},
+                    {{ address.city }}, {{ address.state }}, {{ address.country }},
+                    {{ address.pincode }}
+                </p>
+            </mat-radio-button>
+            <button mat-icon-button (click)="edit.emit(address)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <div  *ngIf="addressSelectRadio.checked">
+                    <button mat-raised-button color="primary"> Select this</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div *ngIf="addresses.length === 0">
+        <p>No addresses available</p>
+    </div>
+</mat-card>
+
+  
+  

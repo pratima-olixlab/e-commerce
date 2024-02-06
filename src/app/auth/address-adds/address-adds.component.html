@@ -1,0 +1,14 @@
+<div class="content-wrapper">
+    <div class="container-wrapper">
+        <div class="container">
+            <mat-card cdkDropList id="addr" #addrList="cdkDropList" [cdkDropListData]="address | async"
+            (cdkDropListDropped)="drop($event)" class="list">
+            <p class="empty-label" *ngIf="(address | async)?.length === 0">Empty list</p>
+            <app-address-home (edit)="editAddress('address', $event)" cdkDrag></app-address-home>
+        </mat-card>
+    </div>
+    <button class="add-address" (click)="newAddress()" mat-button>
+        <mat-icon>add</mat-icon> Add Address
+    </button>
+    </div>
+</div>

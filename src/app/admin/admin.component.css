@@ -1,0 +1,45 @@
+.drawer {
+  position: fixed;
+  height: 100vh;
+  min-width: 255px;
+  border-right: 1px solid #ccc;
+}
+.drawer .header {
+  position: absolute;
+  right: 0;
+  justify-content: space-between;
+}
+.drawer .contents {
+  cursor:pointer;
+  padding-top: 80px;
+  padding-left: 10px;
+  z-index: 1000;
+  .sidebar-item-active{
+    padding: 15px;
+    background-color: #888;
+    color: #fff;
+}
+}
+
+.main {
+  background-color: #fff;
+}
+
+.main.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.main.contents {
+  margin-top: 64px;
+  padding: 16px;
+  margin-left: 0;
+  transition: margin-left 0.3s ease; 
+  background-image: url('/assets/blue.jpeg');
+}
+
+.item-active{
+  margin-bottom: 20px;;
+}
