@@ -1,6 +1,5 @@
 .drawer {
-  position: fixed;
-  height: 100vh;
+  position: absolute;
   min-width: 255px;
   border-right: 1px solid #ccc;
 }
@@ -26,7 +25,6 @@
 }
 
 .main.header {
-  position: fixed;
   top: 0;
   width: 100%;
   border-bottom: 1px solid #ccc;
