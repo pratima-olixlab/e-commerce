@@ -41,3 +41,7 @@
 .item-active{
   margin-bottom: 20px;;
 }
+
+.example-container, .main.contents {
+  height: 100%;
+}
